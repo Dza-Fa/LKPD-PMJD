@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <title>Main Menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        /* ---------- HEADER ----------- */
+        header {
+            background: #4a90e2;
+            color: #fff;
+            width: 100%;
+            margin-bottom: 72px;
+            text-align: center;
+            padding: 40px 0;
+            border-radius: 10px;
+            font-size: 32px;              /* lebih kecil & profesional */
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        }
+
+        /* ---------- MAIN ----------- */
+        main {
+            flex: 1;
+            text-align: center;
+            padding: 30px 20px;
+            max-width: 680px;              /* lebih ramping dari versi awal */
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            background-color: #4a90e2;
+            color: #FFF;
+            padding: 25px 42px;            /* tombol lebih kecil & elegan */
+            border-radius: 8px;
+            margin-left: 24px;
+            margin-right: 24px;
+            font-size: 21px;
+            font-weight: 500;              /* tone lebih profesional */
+            letter-spacing: 0.4px;
+            transition: 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu a:hover {
+            background-color: #3b78c1;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.13);
+        }
+
+        /* ---------- FOOTER ----------- */
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: #ddd;
+            text-align: center;
+            padding: 12px 0;               /* lebih ramping */
+            font-size: 12px;
+            box-shadow: 0 -1px 4px rgba(0,0,0,0.15);
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        footer a:hover {
+            color: #3b78c1;
+        }
+    </style>
+</head>
+<body>
+    <header>LKPD PEMBELAJARAN MENDALAM
+JAVASCRIPT DASAR</header>
+
+    <main>
+        <div class="menu">
+            <a href="LKPD1.html">LKPD 1</a>
+            <a href="LKPD2.html">LKPD 2</a>
+            <a href="LKPD3.html">LKPD 3</a>
+            <a href="LKPD4.html">LKPD 4</a>
+            <a href="LKPD5.html">LKPD 5</a>
+            <a href="LKPD6.html">LKPD 6</a>
+            <a href="LKPD7.html">LKPD 7</a>
+            <a href="LKPD8.html">LKPD 8</a>
+            <a href="LKPD9.html">LKPD 9</a>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 | Someone
+</html>

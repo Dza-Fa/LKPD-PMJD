@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!-- Perbedaan if dan else if -->
+
+<!-- if -->
+<!-- Fungsi:
+ Mengecek kondisi pertama. Jika benar, perintah di dalamnya dijalankan.-->
+<!-- Kapan digunakannya?
+ Selalu muncul pertama dalam struktur logika.-->
+
+<!-- else if -->
+<!-- Fungsi:
+ Mengecek kondisi lain hanya jika kondisi sebelumnya salah.-->
+<!-- kapan digunakannya?
+ Dipakai untuk alternatif kondisi tambahan.-->
+
+<!-- Yang terjadi bila semua kondisi salah. -->
+<!-- Jika tidak ada kondisi yang benar dan tidak ada else di akhir,
+maka tidak ada perintah yang dijalankan.Program hanya melewati blok
+tersebut tanpa melakukan apa pun.
+- Tapi,
+Kalau terdapat else, maka bagian itu akan dijalankan jika semua
+kondisi sebelumnya salah.
+-->
+
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <title>LKPD 2</title>
+</head>
+<body>
+    <a href="mainMenu.html">kembali</a>
+    <script>
+        let nilai = parseInt(prompt("LKPD 2-1: Berapa nilaimu?"));
+        if (nilai >= 70) {
+            alert("LULUS!");
+        }   else {
+            alert("BELUM LULUS...");
+        }
+        let usia = parseInt(prompt("LKPD 2-2: Usiamu?"));
+        if (usia < 13) {
+            alert("Anak-anak.")
+        } else if (usia <= 17) {
+            alert("Remaja.")
+        } else {
+            alert("Dewasa")
+        }
+    </script>
+</body>
+</html>
