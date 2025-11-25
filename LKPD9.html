@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<!-- tantangan terbesar dalam membuat project ini
+     - Mengatur struktur logika yang bersih dan konsisten
+     - Memahami cara kerja elemen HTML dan DOM
+     - Tidak melakukan kesalahan
+     -->
+
+<html>
+    <head>
+        <title>LKPD 9</title>
+        <style>
+            body {
+                font-family: sagoe UI, Tahoma, Geneva, Verdana, sans-serif;
+                background: #f4f4f4;
+                margin: 0px;
+                padding: 40px;
+                display: flex;
+                justify-self: center;
+            }
+            .container {
+                background: white;
+                width: 420px;
+                padding: 25px 30px;
+                border-radius: 14px;
+                box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            }
+            h2 {
+                color: #333;
+                text-align: center;
+                margin-bottom: 20px;
+                letter-spacing: 1.5px;
+            }
+            input[type="text"] {        
+                padding: 12px;
+                width: calc(100% - 100px);
+                margin-right: 10px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                outline: none;
+                transition: 0.2s;
+                font-size: 15px;
+            }
+            button {
+                padding: 12px 16px;
+                cursor: pointer;
+                background: #4a90e2;
+                margin-top: 16px;
+                border: none;
+                border-radius: 8px;
+                color: white;
+                font-size: 14px;
+                transition: 0.2s;
+            }
+
+            button:hover {
+                background: #3b78c1;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 20px;
+            }
+
+            li {
+                background: #fafafa;
+                padding: 12px 14px;
+                border-radius: 8px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 12px;
+                border: 1px solid #e6e6e6;
+                transition: 0.2s;
+            }
+
+            li:hover {
+                transform: translateX(3px);
+                background: #f0f4ff;
+            }
+
+            li span {
+                cursor: pointer;
+                font-size: 15px;
+            }
+
+            li button {
+                padding: 8px 12px;
+                background: #ff5c5c;
+                border: none;
+                color: white;
+                border-radius: 6px;
+                transition: 0.2s;
+            }
+
+            li button:hover {
+                background: #e04747;
+            }
+
+            li.done span {
+                text-decoration: line-through;
+                color: #999;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>To-Do List</h2>
+            <input id="tI" type="text" placeholder="Tambah tugas">
+            <button onclick="tT()">Tambahkan</button>
+            <ul id="tL"></ul>
+        </div>
+        <script>
+            document.getElementById("tI").addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    tT();
+                }
+            });
+            function saveTasks() {
+                let items = [];
+                document.querySelectorAll("#tL li span").forEach(span => {
+                    items.push({
+                        text: span.textContent,
+                        done: span.style.textDecoration === "line-through"
+                    });
+                });
+                localStorage.setItem("tasks", JSON.stringify(items));
+            }
+            function loadTasks() {
+                let data = localStorage.getItem("tasks");
+                if (!data) return;
+
+                let tasks = JSON.parse(data);
+                tasks.forEach(t => {
+                    addTaskFromStorage(t.text, t.done);
+                });
+            }
+            function addTaskFromStorage(text, done) {
+                let s = document.createElement("li");
+
+                let span = document.createElement("span");
+                span.textContent = text;
+
+                if (done) span.style.textDecoration = "line-through";
+
+                let del = document.createElement("button");
+                del.textContent = "Hapus";
+
+                // Event click sama seperti sebelumnya
+                span.onclick = function() {
+                    if (span.style.textDecoration === "line-through") {
+                        span.style.textDecoration = "";
+                    } else {
+                        let k = confirm("Apakah kau benar-benar telah mengerjakannya?");
+                        if (k === true) {
+                            span.style.textDecoration = "line-through";
+                        }
+                    }
+                    saveTasks();
+                };
+
+                del.onclick = function() {
+                    let k2 = confirm("Hapus tugas ini?");
+                    if (k2 === true) {
+                        s.remove();
+                        saveTasks();
+                    }
+                };
+
+                s.appendChild(span);
+                s.appendChild(del);
+                document.getElementById("tL").appendChild(s);
+            }
+            function tT() {
+                let input = document.getElementById("tI");
+                let text = input.value.trim();
+
+                if (text === "") return;
+
+                addTaskFromStorage(text, false); // gunakan fungsi baru
+
+                input.value = "";
+                saveTasks(); // simpan
+            }
+            loadTasks();
+        </script>
+    </body>
+</html>

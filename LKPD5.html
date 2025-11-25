@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<!-- Keuntungan menggunakan array dibanding variabel terpisah -->
+<!-- 1. Lebih ringkas dan efisien.
+     2. Mudah diakses dengan perulangan
+     3. Mudah ditambah atau dikurangi
+     4. Bisa diproses secara dinamis -->
+
+<!-- Cara menambahkan elemen baru ke array -->
+<!-- Ada beberapa cara:
+
+     1. Menggunakan .push()
+        contoh:
+        let buah = ["Apel", "Jeruk"];
+        buah.push("Mangga");
+        console.log(buah); // ["Apel", "Jeruk", "Mangga"] 
+        
+     2. Menggunakan .unshift()
+        contoh:
+        buah.unshift("Pisang");
+        console.log(buah); // ["Pisang", "Apel", "Jeruk", "Mangga"]
+        
+     3. Menggunakan indeks langsung
+        contoh:
+        buah[4] = "Semangka";
+        console.log(buah); // ["Pisang", "Apel", "Jeruk", "Mangga", "Semangka"]
+    -->
+
+<html>
+<head>
+    <title>LKPD 5</title>
+</head>
+<body>
+    <script>
+        let namaT = ["Dani", "Jordan", "Kaka", "Wawan", "Uji"];
+        for (let nama = 0; nama < namaT.length; nama++ ) {
+            alert(namaT[nama]);
+            document.write(namaT[nama] + "<br>");
+        }
+
+        let nilaiS = [80, 76, 85, 98, 70];
+        let total = 0;
+        for (let i = 0; i < nilaiS.length; i++) {
+            total += nilaiS[i];
+        }
+        let rata2 = total / nilaiS.length;
+    </script>
+<body>
+</html>

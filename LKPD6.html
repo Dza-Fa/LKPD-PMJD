@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<!-- Fungsi document.getElementById() -->
+<!-- untuk mengambil (memilih) elemen HTML berdasarkan atribut id-nya. -->
+
+<!-- Cara menambah elemen baru ke halaman secara dinamis -->
+<!-- 1. Buat elemen baru - dengan document.createElement("namaElemen")
+     2. Tambahkan isi teks - menggunakan .textContent atau .innerHTML
+     3. Masukkan ke halaman - menggunakan .appendChild() -->
+     
+<html>
+<head>
+    <title>LKPD 6</title>
+</head>
+<body>
+    <h2 id="teks">Tekan tombol dibawah untuk mengubah warna.</h2>
+    <button onclick="ubahW()">Ubah warna</button>
+    <button onclick="tambahE()">Tambah Elemen Baru</button>
+    <div id="wadah"></div>
+    <script>
+        let warna = ["red", "green", "blue", "purple", "orange", "black"];
+        let indeks = 0;
+        function ubahW() {
+            let teks = document.getElementById("teks");
+            teks.style.color = warna[indeks];
+            indeks = (indeks + 1) % warna.length;
+        }
+        function tambahE() {
+            let elemenB = document.createElement("p");
+            let jumlah = document.getElementById("wadah").children.length + 1;
+            elemenB.textContent = "Elemen ke-" + jumlah;
+            document.getElementById("wadah").appendChild(elemenB);
+        }
+    </script>
+</body>
+</html>

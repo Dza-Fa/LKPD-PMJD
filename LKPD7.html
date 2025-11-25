@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Perbedaan onclick dan onmouseover -->
+
+<!-- onclick
+ - Event yang terjadi saat elemen diklik (tekan sekali).
+ - Biasanya dipakai untuk tombol.
+ - Hanya aktif saat pengguna menekan mouse.
+ -->
+
+<!-- onmouseover 
+ - Event yang terjadi ketika kursor mouse hanya melewati elemen (tanpa klik).
+ - Cocok untuk efek hover seperti mengubah warna, menampilkan tooltip, dll.
+ - Eventnya lebih “sensitif” karena bekerja hanya dengan lewat saja.
+ -->
+
+ 
+<!-- Mengapa event itu penting untuk interaktivitas?
+ Event adalah cara HTML + JavaScript merespons tindakan pengguna.
+ Tanpa event, halaman web hanya diam saja seperti kertas.
+ -->
+
+<html>
+<head>
+    <title>LKPD 7</title>
+</head>
+<body>
+    <p id="par">Tekan tombol dibawah untuk menyembunyikan paragraf ini.</p>
+    <button id="tombol" onclick="toggle()">Sembunyi</button>
+
+    <input type="text" oninput="tampil(this.value)" placeholder="Pesan...">
+
+    <p id="hasil"></p>
+    <script>
+        function toggle() {
+            let p = document.getElementById("par");
+            let t = document.getElementById("tombol");
+
+            if (p.style.display === "none") {
+                p.style.display = "block";
+                t.textContent = "Sembunyikan";
+            } else {
+                p.style.display = "none";
+                t.textContent = "Tampilkan";
+            }
+        }
+        function tampil(teks) {
+            document.getElementById("hasil").textContent = teks;
+        }
+    </script>
+</body>
+</html>
